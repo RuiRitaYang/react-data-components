@@ -17,7 +17,7 @@ var DataTable = React.createClass({
 
     return (
       <div className={this.props.className}>
-        <div className="row">
+        <div className="row table-options">
           <div className="col-xs-4">
             <SelectField
               id="page-menu"
@@ -26,20 +26,14 @@ var DataTable = React.createClass({
               options={this.props.pageLengthOptions}
               onChange={this.onPageLengthChange}
             />
+          </div>
+          <div className="col-xs-8 ">
             <SearchField
-              id="search-field"
+              id="search-field pull-right"
               label="Search:"
               value={this.state.filterValues.globalSearch}
               onChange={this.onFilter.bind(this, 'globalSearch')}
-            />
-          </div>
-          <div className="col-xs-8">
-            <Pagination
-              className="pagination pull-right"
-              currentPage={page.currentPage}
-              totalPages={page.totalPages}
-              onChangePage={this.onChangePage}
-            />
+              />
           </div>
         </div>
         <Table
@@ -50,6 +44,16 @@ var DataTable = React.createClass({
           sortBy={this.state.sortBy}
           onSort={this.onSort}
         />
+        <div className="row">
+          <div className="col-xs-12">
+            <Pagination
+              className="pagination pull-right"
+              currentPage={page.currentPage}
+              totalPages={page.totalPages}
+              onChangePage={this.onChangePage}
+              />
+          </div>
+        </div>
       </div>
     );
   }

@@ -10,7 +10,7 @@ var SearchField = React.createClass({
 
   render() {
     return (
-      <div>
+      <div className="table-search">
         <label htmlFor={this.props.id}>{this.props.label}</label>
         <input
           id={this.props.id}
